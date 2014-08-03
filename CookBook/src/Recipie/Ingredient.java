@@ -14,9 +14,20 @@ public class Ingredient {
    
     // Constructors
     // -----------------------------------------------------------------------
+    public Ingredient(){
+        this("", null);
+    }
+    
     public Ingredient(String name, Unit unit) {
         this.name = name;
         this.unit = unit;
+    }
+    
+    // Public Functions
+    // -----------------------------------------------------------------------
+    @Override
+    public String toString(){
+        return name + "/" + unit.toString();
     }
     
     // Sets and Gets

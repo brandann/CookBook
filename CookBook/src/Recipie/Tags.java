@@ -14,6 +14,10 @@ public class Tags {
     
     // Constructors
     // -----------------------------------------------------------------------
+    public Tags() {
+        tags = "";
+    }
+    
     public Tags(String tags) {
         this.tags = tags;
     }
@@ -26,6 +30,11 @@ public class Tags {
     
     public boolean removeTag(String tag){
         return false;
+    }
+    
+    @Override
+    public String toString(){
+        return tags;
     }
     
     // Set and Gets

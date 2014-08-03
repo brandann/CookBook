@@ -16,6 +16,11 @@ public class Recipie {
     
     // Constructors
     // -----------------------------------------------------------------------
+    public Recipie() {
+        ingredients = new ArrayList<Ingredient>();
+        tags = new Tags();
+    }
+    
     public Recipie(String recipie){
         parseRecipie(recipie);
     }
@@ -23,24 +28,41 @@ public class Recipie {
     // Private Functions
     // -----------------------------------------------------------------------
     private void parseRecipie(String recipie){
+        ingredients = new ArrayList<Ingredient>();
+        
         String[] r = recipie.split(";");
         id = Integer.parseInt(r[ID]);
         title = r[TITLE].trim();
         parseIngredients(r[INGREDIENTS]);
-        parseTags(r[TAGS]);
+        tags = new Tags(r[TAGS]);
     }
     
     private void parseIngredients(String ingredients) {
         String[] i = ingredients.split(",");
-        
         for(String s : i){
-            //ingredient format: NAME/UNIT/COUNT
+            //ingredient format: NAME/TYPE/UNIT
+            String[] in = s.split("/");
+            Ingredient temp = new Ingredient(in[NAME], 
+                    new Unit(in[TYPE], Float.parseFloat(in[UNIT])));
+            this.ingredients.add(temp);
         }
     }
     
-    private void parseTags(String tags) {
-        String[] t = tags.split(",");
-        
+    // Public Functions
+    // -----------------------------------------------------------------------
+    @Override
+    public String toString(){
+        String str = "";
+        str += id + ";" +title + ";";
+        for(Ingredient i : ingredients){
+            str += i.toString() + ",";
+        }
+        str += ";";
+        //int last = str.lastIndexOf(",");
+        str = str.replaceAll(",;", ";");
+        //str.replace(",;", ";");
+        str += tags;
+        return str;
     }
     
     
@@ -62,8 +84,11 @@ public class Recipie {
     private Tags tags;
     private int id;
     
-    private int ID = 0;
-    private int TITLE = 1;
-    private int INGREDIENTS = 2;
-    private int TAGS = 3;
+    final private int ID = 0;
+    final private int TITLE = 1;
+    final private int INGREDIENTS = 2;
+    final private int TAGS = 3;
+    final private int NAME = 0;
+    final private int TYPE = 1;
+    final private int UNIT = 2;
 }
