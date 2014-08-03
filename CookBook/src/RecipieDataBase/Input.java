@@ -6,10 +6,24 @@
 
 package RecipieDataBase;
 
+import Recipie.Recipe;
+import java.util.ArrayList;
+
 /**
  *
  * @author brandan
  */
 public class Input {
     
+    public ArrayList<Recipe> getDatabase(){
+        return null;
+    }
+    
+    private boolean getOnlineDatabase(){
+        return false;
+    }
+    
+    private boolean getLocalDatabase(){
+        return false;
+    }
 }

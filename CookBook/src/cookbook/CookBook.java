@@ -6,7 +6,7 @@
 
 package cookbook;
 
-import Recipie.Recipie;
+import Recipie.Recipe;
 
 /**
  *
@@ -18,9 +18,9 @@ public class CookBook {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Recipie r1 = new Recipie("1000;Mac and Cheese;Noodles/C/2,Chese/OZ/4,MILK/PINT/1;KIDS,DAIRY,YUK");
-        Recipie r2 = new Recipie("1001;Soup;Noodles/C/2,Broth/OZ/6,TOFU/QTY/1;KIDS,VEGAN,HOT");
-        Recipie r3 = new Recipie();
+        Recipe r1 = new Recipe("1000;Mac and Cheese;Noodles/C/2,Chese/OZ/4,MILK/PINT/1;KIDS,DAIRY,YUK");
+        Recipe r2 = new Recipe("1001;Soup;Noodles/C/2,Broth/OZ/6,TOFU/QTY/1;KIDS,VEGAN,HOT");
+        Recipe r3 = new Recipe();
         
         System.out.println(r1.toString());
         System.out.println(r2.toString());

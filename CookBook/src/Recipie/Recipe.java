@@ -12,31 +12,47 @@ import java.util.ArrayList;
  *
  * @author brandan
  */
-public class Recipie {
+public class Recipe {
     
     // Constructors
     // -----------------------------------------------------------------------
-    public Recipie() {
+    /**
+     * Recipe constructor
+     */
+    public Recipe() {
         ingredients = new ArrayList<Ingredient>();
         tags = new Tags();
     }
     
-    public Recipie(String recipie){
-        parseRecipie(recipie);
+    /**
+     * Recipe constructor
+     * @param recipie parses and loads recipe from string
+     */
+    public Recipe(String recipie){
+        parseRecipe(recipie);
     }
     
     // Private Functions
     // -----------------------------------------------------------------------
-    private void parseRecipie(String recipie){
+    /**
+     * parseRecipe
+     * @param recipe parses the recipe string
+     */
+    private void parseRecipe(String recipe){
         ingredients = new ArrayList<Ingredient>();
         
-        String[] r = recipie.split(";");
+        String[] r = recipe.split(";");
         id = Integer.parseInt(r[ID]);
         title = r[TITLE].trim();
         parseIngredients(r[INGREDIENTS]);
         tags = new Tags(r[TAGS]);
     }
     
+    /**
+     * parseIngredients
+     * break and parse the ingredients and set its units
+     * @param ingredients string off all ingredients
+     */
     private void parseIngredients(String ingredients) {
         String[] i = ingredients.split(",");
         for(String s : i){
@@ -51,6 +67,7 @@ public class Recipie {
     // Public Functions
     // -----------------------------------------------------------------------
     @Override
+    
     public String toString(){
         String str = "";
         str += id + ";" +title + ";";
@@ -68,7 +85,7 @@ public class Recipie {
     
     // Sets and Gets
     // -----------------------------------------------------------------------
-    public void setRecipie(String recipie) { parseRecipie(recipie); }
+    public void setRecipie(String recipie) { parseRecipe(recipie); }
     public void setTitle(String title) { this.title = title; }
     public void setIngredients(String ingredients) { parseIngredients(ingredients); }
     public void setTags(Tags tags) { this.tags = tags; }
