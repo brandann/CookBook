@@ -1,10 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Ingredients.java
  */
 
-package Recipie;
+package Recipe;
 
 /**
  *
@@ -14,10 +12,19 @@ public class Ingredient {
    
     // Constructors
     // -----------------------------------------------------------------------
+    /**
+     * main constructor
+     * sets values to blank
+     */
     public Ingredient(){
         this("", null);
     }
     
+    /**
+     * constructor
+     * @param name of ingredient
+     * @param unit of ingredient
+     */
     public Ingredient(String name, Unit unit) {
         this.name = name;
         this.unit = unit;
@@ -32,9 +39,28 @@ public class Ingredient {
     
     // Sets and Gets
     // -----------------------------------------------------------------------
+    /**
+     * set name of ingredient
+     * @param name of ingredient
+     */
     public void setName(String name) { this.name = name; }
+    
+    /**
+     * set unit of ingredient
+     * @param unit of ingredient
+     */
     public void setUnit(Unit unit) { this.unit = unit; }
+    
+    /**
+     * get name of ingredient
+     * @return name of ingredient
+     */
     public String getName() { return name; }
+    
+    /**
+     * get unit of ingredient
+     * @return unit of ingredient
+     */
     public Unit getUnit() { return unit; }
     
     // Members

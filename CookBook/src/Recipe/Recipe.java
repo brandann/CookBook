@@ -1,10 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Recipe.java
  */
 
-package Recipie;
+package Recipe;
 
 import java.util.ArrayList;
 
@@ -67,7 +65,6 @@ public class Recipe {
     // Public Functions
     // -----------------------------------------------------------------------
     @Override
-    
     public String toString(){
         String str = "";
         str += id + ";" +title + ";";
@@ -85,13 +82,52 @@ public class Recipe {
     
     // Sets and Gets
     // -----------------------------------------------------------------------
+    /**
+     * set this recipe
+     * @param recipie to set this to
+     */
     public void setRecipie(String recipie) { parseRecipe(recipie); }
+    
+    /**
+     * set title of recipe
+     * @param title to set this to
+     */
     public void setTitle(String title) { this.title = title; }
+    
+    /**
+     * set ingredients of recipe
+     * @param ingredients to set this to
+     */
     public void setIngredients(String ingredients) { parseIngredients(ingredients); }
+    
+    /**
+     * set tags of recipe
+     * @param tags to set this to
+     */
     public void setTags(Tags tags) { this.tags = tags; }
+    
+    /**
+     * set id of recipe
+     * @param id to set this to
+     */
     public void setID(int id) { this.id = id; }
+    
+    /**
+     * get recipe title
+     * @return recipe title
+     */
     public String getTitle() { return title; }
+    
+    /**
+     * get recipe ingredients
+     * @return recipe ingredients
+     */
     public ArrayList<Ingredient> getIngredients() { return ingredients; }
+    
+    /**
+     * get recipe id
+     * @return recipe id
+     */
     public int getID() { return id; }
     
     // Members

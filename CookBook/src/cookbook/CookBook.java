@@ -6,7 +6,8 @@
 
 package cookbook;
 
-import Recipie.Recipe;
+import Recipe.Recipe;
+import RecipeDataBase.RecipeDataBase;
 
 /**
  *
@@ -20,11 +21,23 @@ public class CookBook {
     public static void main(String[] args) {
         Recipe r1 = new Recipe("1000;Mac and Cheese;Noodles/C/2,Chese/OZ/4,MILK/PINT/1;KIDS,DAIRY,YUK");
         Recipe r2 = new Recipe("1001;Soup;Noodles/C/2,Broth/OZ/6,TOFU/QTY/1;KIDS,VEGAN,HOT");
-        Recipe r3 = new Recipe();
+        Recipe r3 = new Recipe("1002;Grilled Cheese;Bread/QTY/8,Dyia Cheese/QTY/1;KIDS,VEGAN,FAST,CHEAP");
         
-        System.out.println(r1.toString());
-        System.out.println(r2.toString());
-        System.out.println(r3.toString());
+        RecipeDataBase rb = new RecipeDataBase();
+        rb.addRecipe(r1);
+        rb.addRecipe(r2);
+        rb.addRecipe(r3);
+        
+        rb.print();
+        print("------------------------------------------------");
+        for(int i = 1000; i < 1005; i++){
+            if(rb.getRecipe(i) != null)
+                print(rb.getRecipe(i).toString());
+        }
+    }
+    
+    static public void print(String s){
+        System.out.println("LOG: " + s);
     }
     
 }
